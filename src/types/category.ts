@@ -4,5 +4,4 @@ export interface TreeItem {
   pid?: string;
   root?: boolean;
   children: TreeItem[];
-  //   children?: TreeItem[] | undefined;
 }

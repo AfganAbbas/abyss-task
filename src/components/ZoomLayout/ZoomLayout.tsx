@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./zoom-layout.css";
 import Dropdown from "../Dropdown/Dropdown";
+import CenterLogo from "../../assets/icons/center.svg";
 
 const ZoomPanContainer: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -66,14 +67,14 @@ const ZoomPanContainer: React.FC<{ children: React.ReactNode }> = ({
     <div>
       <div className="navbar">
         <button className="navbar__item" onClick={handleReset}>
-          Reset
+          <img src={CenterLogo} alt="center" />
         </button>
         <div className="navbar__wraper">
-          <button className="navbar__item positive" onClick={handleZoomIn}>
+          <button className="navbar__item positive" onClick={handleZoomOut}>
             -
           </button>
           <Dropdown handleScaleSet={handleScaleSet} scale={scale} />
-          <button className="navbar__item negative" onClick={handleZoomOut}>
+          <button className="navbar__item negative" onClick={handleZoomIn}>
             +
           </button>
         </div>

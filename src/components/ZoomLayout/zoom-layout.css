@@ -25,14 +25,9 @@
 
 .navbar__item {
   position: relative;
-  width: 5em;
+  width: 2em;
   border: none;
   padding: 6px 3px;
   background-color: white;
   cursor: pointer;
-}
-
-.navbar__item.positive,
-.navbar__item.negative {
-  width: 2em;
 }
