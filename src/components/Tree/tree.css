@@ -1,0 +1,139 @@
+/* It's supposed to look like a tree diagram */
+.tree,
+.tree ul,
+.tree li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.tree {
+  margin: 0 0 1em;
+  text-align: center;
+}
+.tree,
+.tree ul {
+  display: table;
+}
+.tree ul {
+  width: 100%;
+}
+.tree li {
+  display: table-cell;
+  padding: 0.6em 1.5em;
+  vertical-align: top;
+}
+/* _________ */
+.tree li:before {
+  outline: solid 1px #666;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.tree li:first-child:before {
+  left: 50%;
+}
+.tree li:last-child:before {
+  right: 50%;
+}
+
+.tree .item-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.2em 0.5em;
+  padding-left: 2em;
+  position: relative;
+}
+
+.tree .label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.tree .label,
+.tree input {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  width: 120px;
+  position: relative;
+}
+.tree .label {
+  color: white;
+  background-color: lightskyblue;
+}
+.tree input {
+  background-color: white;
+  border: 3px solid lightblue;
+  outline: none;
+}
+
+/* If the tree represents DOM structure */
+.tree code {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.options {
+  position: relative;
+  margin: 0 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+}
+.options__item {
+  border: none;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.positive {
+  background-color: green;
+}
+.negative {
+  background-color: red;
+}
+.neutral {
+  background-color: orange;
+}
+
+/* | */
+.tree ul:before,
+.tree .item-wraper:before {
+  outline: solid 1px #666;
+  content: "";
+  height: 0.5em;
+  left: 50%;
+  position: absolute;
+}
+
+.tree .root li:before {
+  height: 0;
+  outline: none;
+}
+.tree ul:before {
+  top: -0.5em;
+}
+.tree .item-wraper:before {
+  top: -0.55em;
+}
+
+/* The root node doesn't connect upwards */
+.tree > li {
+  margin-top: 0;
+}
+.tree > li:before,
+.tree > li:after,
+.tree > li > .item-wraper:before {
+  outline: none;
+}
