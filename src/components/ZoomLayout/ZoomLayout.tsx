@@ -14,11 +14,11 @@ const ZoomPanContainer: React.FC<{ children: React.ReactNode }> = ({
   const [startY, setStartY] = useState(0);
 
   const handleZoomIn = () => {
-    setScale((prevState) => prevState + 0.2);
+    setScale((prevState) => prevState<3 ? prevState + 0.2:prevState);
   };
 
   const handleZoomOut = () => {
-    setScale((prevState) => prevState - 0.2);
+    setScale((prevState) => prevState>0.6 ? prevState - 0.2:prevState);
   };
 
   const handleScaleSet = (newValue: string) => {
